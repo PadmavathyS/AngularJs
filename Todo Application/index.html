@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular.min.js"></script>-->
+    <script type="text/javascript" src="http://code.angularjs.org/0.9.16/angular-0.9.16.js"></script>
+    <!--<script type="text/javascript" ng:autobind src="js/todo.js"></script>
+    <script type="text/stylesheet" ng:autobind src="css/todo.css"></script>
+    <script type="text/javascript" ng:autobind src="js/angular.min.js"></script>
+    <script type="text/javascript" ng:autobind src="js/makedom.js"></script>-->
+
+<title>todo application</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/todo.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/todo.css"/>
+    <script src="js/makedom.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+
+        <div ng-controller="TodoCtrl">
+        
+            <div class="row-fluid">
+                <div class="comment" align="center">
+                <!--<div class="well">--</div> -->
+                    <h1 >Todo Manager</h1></div><!--</div>-->
+               </div> <br><br>
+            <div class="row-fluid">
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+            <!--<header class="navbar navbar-default" align="center">-->
+<!--</header>     -->
+      <!--<span>{{remaining()}} of {{todos.length}} remaining</span><br/>-->
+      
+              <ul class="unstyled" ng-repeat="todo in todos">
+                <!--<li ng-repeat="todo in todos">-->
+                  <input type="checkbox" ng-model="todo.done">
+                  <span class="done-{{todo.done}}">
+                        <b><i>
+                        <span ng:hide="editorEnabled" ng:click="enableEditor()">
+                        {{todo.text}}
+                        </span></i></b>
+                
+                
+          <!--newly added-->
+          
+                        <span ng:show="editorEnabled">
+                            <input type="text"  ng-model="todoText" size="30" name="todoText" ng:required>
+                            <textarea rows="5" ng-model="todoArea" name="todoArea" cols="50" ng:required></textarea>
+                            <button ng:click="Save()">Ok</button>
+                            <button ng:click="disableEditor()">Cancel</button>
+                    </span>
+          
+                
+                
+                </span>
+          
+          
+                <a href="#"><span class="glyphicon glyphicon-info-sign" ng:click="enable()"></span></a><br><br>
+                <!--</li>-->
+            </ul>
+       <button class="btn btn-danger" ng-click="archive();clear()">Clear</button> <br<br><br><br>
+                <div class="design" align="center"><h2><span>You have {{remaining()}} task remaining</span></h2></div><br><br>
+      <form ng-submit="addTodo()">
+        <input type="text" ng-model="todoText" name="todoText" size="30" placeholder="add new todo title here" required><br><br>
+	<textarea rows="5" ng-model="todoArea" name="todoarea" cols="50" placeholder="add todo info here" required></textarea><br/><br/>
+        <input class="btn btn-info" type="submit" value="Add"><br/><br/>
+        <!--<input class="btn btn-info-lg" type="submit" value="Add"><br/><br/>-->
+            
+            
+            
+        <!--<h4>Total:</h4>{{todos.length}}
+        <h4>Remaining:</h4>{{remaining()}}-->
+      </form>
+    <!--<hr />
+    Debug view:
+    <pre>
+        todos = {{todos}}
+    </pre>-->
+    </div><!----end of col5-->
+    <div class="col-md-5">
+        
+            <br/>
+        
+            <br/>
+            
+        &nbsp;&nbsp;
+        <div class="bo">
+            <div align="center">
+        <div id="main">
+            
+        </div>
+        &nbsp;&nbsp;
+        <div id="content">
+            
+        </div></div></div>
+        
+    </div><!--end of col6-->
+    </div><!--end of row-->
+</div><!--end of controller-->
+</div><!--end of container-->
+  </body>
+</html>
