@@ -1,4 +1,4 @@
 AngularJs
 =========
 
-Todo Application
+Todo Application was created using Javascript.
